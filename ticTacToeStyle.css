@@ -1,0 +1,59 @@
+.title {
+  color: #464948;
+  font-size: 70px;
+  font-family: Loved by the King, sans-serif;
+  text-align: center;
+  margin-top: -90px;
+}
+.tac {
+  color:#12bc5c;
+}
+.gameboard {
+  margin: auto;
+  margin-top: -130px;
+  width: 800px;
+  height: 700px;
+  position: relative;
+}
+.game {
+  width: 100%;
+  height: 100%;
+}
+.spaces {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.spaces td {
+  height: 33%;
+  width: 33%;
+  font-family: Loved by the King, sans-serif;
+  font-size: 70px;
+  color: #464948;
+  text-align:center;
+}
+.space-0,
+.space-1,
+.space-3,
+.space-4,
+.space-6,
+.space-7 {
+  border-right: 2px solid #464948;
+}
+.row-0 {
+  border-bottom: 2px solid #464948;
+  background-color: #ffffff;
+}
+.row-1 {
+  border-bottom: 2px solid #464948;
+}
+.hiddenX {
+  display: none;
+}
+.hiddenO {
+  display: none;
+}
+.disable {
+  pointer-events: none;
+}
