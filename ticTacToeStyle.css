@@ -5,6 +5,19 @@
   text-align: center;
   margin-top: -90px;
 }
+.winner-message {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  margin-top: 16%;
+  z-index: 100;
+  font-family: Loved by the King, sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  color: #12bc5c;
+  display: none;
+}
+
 .tac {
   color:#12bc5c;
 }
@@ -53,7 +66,4 @@
 }
 .hiddenO {
   display: none;
-}
-.disable {
-  pointer-events: none;
 }
