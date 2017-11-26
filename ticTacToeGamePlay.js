@@ -1,5 +1,3 @@
-// winner winner chicken dinner when three are in a row
-// if space-0, space-1, and space-2 are all O alert O wins!
 var board = [
   ["", "", ""],
   ["", "", ""],
@@ -7,6 +5,8 @@ var board = [
 ];
 
 var count = 0;
+
+var gameOver = false;
 
 var setCellValue = function(row, column, value) {
   var cell = document.querySelector(".cell-" + row + "-" + column);
@@ -25,17 +25,54 @@ var drawBoard = function(board) {
   }
 };
 
+var hasHorizontalWin = function(board, player) {
+  for(var row = 0; row < board.length; row++) {
+    if(board[row][0] === player && board[row][1] === player && board[row][2] === player){
+      return true;
+    }
+  }
+};
+
+var hasVerticalWin = function(board, player) {
+  for(var column = 0; column < board.length; column++) {
+    if(board[0][column] === player && board[1][column] === player && board[2][column] === player){
+      return true;
+    }
+  }
+};
+
+var hasDiagonalWin = function(board, player) {
+  if(board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+    return true;
+  } else if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+    return true;
+  }
+};
+
+var hasWin = function(board, player){
+  if(hasHorizontalWin(board, player) || hasVerticalWin(board, player) || hasDiagonalWin(board, player)) {
+    alert(player + " wins!");
+    gameOver = true;
+  }
+};
+
+var winner = function(board){
+  hasWin(board, "X");
+  hasWin(board, "O");
+};
+
 var attachCellClickHandler = function(row, column, board) {
   var cell = document.querySelector(".cell-" + row + "-" + column);
   cell.addEventListener("click", function(){
-    if(board[row][column] === "") {
-      if(count % 2 === 0){
+    if(gameOver === false && board[row][column] === "") {
+      if(count % 2 === 0) {
         board[row][column] = "O"
       } else {
         board[row][column] = "X";
       }
       count++;
       drawBoard(board);
+      winner(board);
     }
   });
 };
@@ -51,35 +88,3 @@ var attachBoardClickHandlers = function(board) {
 window.onload = function() {
   attachBoardClickHandlers(board);
 };
-
-
-
-// window.onload = function() {
-//   var spaces = document.querySelectorAll(".spaces td");
-//   console.log(spaces);
-//
-//   var count = 0;
-//   var clickedSpace = document.querySelectorAll(".click");
-//
-//   clickedSpace.forEach(function(space){
-//     space.addEventListener("click",function(){
-//       count++;
-//     })
-//   })
-//
-// var spaceMark = function(event) {
-//   console.log(event.currentTarget);
-//   var x = event.currentTarget.querySelector(".X");
-//   var o = event.currentTarget.querySelector(".O");
-//   if(count % 2 === 0) {
-//     x.classList.remove("hiddenX");
-//   } else {
-//     o.classList.remove("hiddenO");
-//   }
-//   event.currentTarget.classList.add("disable");
-// };
-//
-// spaces.forEach(function(space) {
-//   space.addEventListener("click", spaceMark);
-// })
-// };
