@@ -6,16 +6,26 @@
   margin-top: -90px;
 }
 
-.winner-message {
+.game-over {
   position: fixed;
   text-align: center;
   width: 100%;
   margin-top: 22%;
   z-index: 100;
+}
+
+.winner-message {
   font-family: Loved by the King, sans-serif;
   font-size: 250px;
   font-weight: bold;
   color: #12bc5c;
+}
+.new-game-button {
+  font-family: Loved by the King, sans-serif;
+  font-size: 50px;
+  color: #464948;
+  background-color: #b7bfbd;
+  border-radius: 20%;
 }
 
 .hidden {

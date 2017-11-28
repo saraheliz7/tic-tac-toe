@@ -1,12 +1,15 @@
 var BoardView = function(){
   var self = this;
-  
+
   var showCellValue = function(row, column, value) {
     var cell = document.querySelector(".cell-" + row + "-" + column);
     if(value === "X") {
       cell.querySelector(".X").classList.remove("hiddenX");
     } else if(value === "O") {
       cell.querySelector(".O").classList.remove("hiddenO");
+    } else {
+      cell.querySelector(".X").classList.add("hiddenX");
+      cell.querySelector(".O").classList.add("hiddenO");
     }
   };
 
@@ -21,7 +24,7 @@ var BoardView = function(){
   this.showWinner = function(player){
     var winnerMessage = document.querySelector(".winner-message");
     winnerMessage.textContent = player + " WINS!";
-    winnerMessage.classList.remove("hidden");
+    document.querySelector(".game-over").classList.remove("hidden");
   };
 
   var attachCellClickHandler = function(row, column, board, callback) {
@@ -38,4 +41,14 @@ var BoardView = function(){
       }
     }
   };
+
+  this.clearWinner = function(){
+    document.querySelector(".game-over").classList.add("hidden");
+  };
+
+  this.attachButtonClickHandler = function(callback) {
+    var button = document.querySelector(".new-game-button");
+    button.addEventListener("click", callback);
+  };
+
 };

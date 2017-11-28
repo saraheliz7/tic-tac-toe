@@ -55,4 +55,14 @@ var Board = function(){
     }
     count++
   };
+
+  this.clearBoard = function() {
+    grid = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""]
+    ];
+  };
 };
+
+//method to clear board
